@@ -1,0 +1,8 @@
+/*{
+    "from": "your_email@example.com",
+    "password": "your_email_password_or_app_password",
+    "to": "your_email@example.com",
+    "smtp_server": "smtp.office365.com",
+    "smtp_port": 587
+}*/
+  
