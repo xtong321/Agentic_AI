@@ -12,8 +12,8 @@ print(os.getenv("OPENAI_API_KEY"))
 llm = ChatOpenAI(model="gpt-4o-mini")
 
 resp = llm.invoke([
-    SystemMessage(content="你是一个测试助手"),
-    HumanMessage(content="测试一下 LangChain 是否正常")
+    SystemMessage(content="You are a testing assistant"),
+    HumanMessage(content="Testing whether LangChain is working correctly")
 ])
 
 print(resp)
