@@ -1,4 +1,4 @@
-from langchain.chat_models import ChatOpenAI # ��ʹ�� vLLM ����ı���ģ��
+from langchain.chat_models import ChatOpenAI
 
 class DiagnosticAgent:
     def __init__(self, model_path):
