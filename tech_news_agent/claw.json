@@ -1,0 +1,41 @@
+{
+  "name": "tech_news_agent",
+  "description": "Fetch and summarize today's technology news into an English briefing.",
+  "model": {
+    "provider": "openai",
+    "name": "gpt-4o-mini",
+    "temperature": 0.3
+  },
+  "tools": [
+    {
+      "name": "fetch_tech_news_rss",
+      "description": "Fetches today's technology news from Google News RSS.",
+      "module": "tools.news_rss",
+      "function": "fetch_tech_news_rss",
+      "arguments": {
+        "max_items": {
+          "type": "int",
+          "default": 12
+        }
+      }
+    }
+  ],
+  "tasks": [
+    {
+      "name": "daily_tech_briefing",
+      "description": "Automatically fetch and summarize today's technology news.",
+      "entry": true,
+      "prompt": [
+        {
+          "role": "system",
+          "content": "You are a personal technology news assistant. Produce a concise, structured English briefing for a tech‑savvy audience."
+        },
+        {
+          "role": "user",
+          "content": "Use the tool `fetch_tech_news_rss` to get today's tech news, then:\n1) Produce a structured English daily tech briefing.\n2) Prioritize items by importance.\n3) For each item, provide 1–2 sentences explaining the event and its impact.\n4) End with 3 key trends worth monitoring."
+        }
+      ],
+      "tool_choice": "auto"
+    }
+  ]
+}
